@@ -1,0 +1,128 @@
+import {
+  IoPersonOutline,
+  IoHeartOutline,
+  IoCartOutline,
+  IoSearch,
+} from "react-icons/io5";
+
+export default function Header() {
+  return (
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      {/* Main Header Container */}
+      <div className="px-8 py-4">
+        <div className="flex items-center justify-between gap-8">
+          {/* Logo */}
+          <div className="shrink-0">
+            <img
+              src="https://imgs.search.brave.com/5VF35XC9L4_A0YnY5D95J9524F9Iz5ShaPBq_xXFkVk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZWFs/Y2FzaC5pbi9pbWcv/dGhlLXNvdWxlZC1z/dG9yZS1sb2dvLnBu/Zw"
+              alt="Myntra Logo"
+              className="h-12 w-auto hover:opacity-80 transition-opacity cursor-pointer"
+            />
+          </div>
+
+          {/* Categories */}
+          <nav className="hidden lg:flex items-center gap-8 flex-1">
+            <a
+              href="/men"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              MEN
+            </a>
+            <a
+              href="/women"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              WOMEN
+            </a>
+            <a
+              href="/kids"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              KIDS
+            </a>
+            <a
+              href="/home"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              HOME
+            </a>
+            <a
+              href="/beauty"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              BEAUTY
+            </a>
+            <a
+              href="/genz"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
+            >
+              GEN<span className="text-xs">Z</span>
+            </a>
+            <a
+              href="/studio"
+              className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm flex items-center gap-1"
+            >
+              STUDIO
+              <sup className="text-xs bg-red-500 text-white px-1.5 py-0.5 rounded font-bold">
+                NEW
+              </sup>
+            </a>
+          </nav>
+
+          {/* Search Bar */}
+          <div className="hidden md:flex flex-1 max-w-xs">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Search for products, brands and more"
+                className="w-full px-4 py-2 bg-gray-100 text-sm text-gray-800 placeholder-gray-500 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-red-500 transition-colors">
+                <IoSearch size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side Icons with Labels */}
+          <div className="flex items-center gap-6">
+            {/* Profile */}
+            <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group">
+              <IoPersonOutline
+                size={24}
+                className="text-gray-800 group-hover:text-red-500"
+              />
+              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                Profile
+              </span>
+            </button>
+
+            {/* Wishlist */}
+            <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group">
+              <IoHeartOutline
+                size={24}
+                className="text-gray-800 group-hover:text-red-500"
+              />
+              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                Wishlist
+              </span>
+            </button>
+
+            {/* Bag */}
+            <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group relative">
+              <IoCartOutline
+                size={24}
+                className="text-gray-800 group-hover:text-red-500"
+              />
+              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                Bag
+              </span>
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                0
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
