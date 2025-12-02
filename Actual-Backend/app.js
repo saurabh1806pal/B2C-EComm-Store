@@ -39,7 +39,7 @@ app.post("/items", async (req, res) => {
   res.status(201).json({ message: "Stored new item.", item: newItem });
 });
 
-app.get("/", (req, res) => {
+app.get("/server-status/running", (req, res) => {
   res.sendFile(__dirname + "/server.html");
 });
 
