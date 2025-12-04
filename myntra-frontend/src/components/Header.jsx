@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   IoPersonOutline,
   IoHeartOutline,
@@ -13,60 +14,62 @@ export default function Header() {
         <div className="flex items-center justify-between gap-8">
           {/* Logo */}
           <div className="shrink-0">
-            <img
-              src="https://imgs.search.brave.com/5VF35XC9L4_A0YnY5D95J9524F9Iz5ShaPBq_xXFkVk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZWFs/Y2FzaC5pbi9pbWcv/dGhlLXNvdWxlZC1z/dG9yZS1sb2dvLnBu/Zw"
-              alt="Myntra Logo"
-              className="h-12 w-auto hover:opacity-80 transition-opacity cursor-pointer"
-            />
+            <Link to="/">
+              <img
+                src="https://imgs.search.brave.com/5VF35XC9L4_A0YnY5D95J9524F9Iz5ShaPBq_xXFkVk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZWFs/Y2FzaC5pbi9pbWcv/dGhlLXNvdWxlZC1z/dG9yZS1sb2dvLnBu/Zw"
+                alt="Myntra Logo"
+                className="h-12 w-auto hover:opacity-80 transition-opacity cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Categories */}
           <nav className="hidden lg:flex items-center gap-8 flex-1">
-            <a
-              href="/men"
+            <Link
+              to="/men"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               MEN
-            </a>
-            <a
-              href="/women"
+            </Link>
+            <Link
+              to="/women"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               WOMEN
-            </a>
-            <a
-              href="/kids"
+            </Link>
+            <Link
+              to="/kids"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               KIDS
-            </a>
-            <a
-              href="/home"
+            </Link>
+            <Link
+              to="/home"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               HOME
-            </a>
-            <a
-              href="/beauty"
+            </Link>
+            <Link
+              to="/beauty"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               BEAUTY
-            </a>
-            <a
-              href="/genz"
+            </Link>
+            <Link
+              to="/genz"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm"
             >
               GEN<span className="text-xs">Z</span>
-            </a>
-            <a
-              href="/studio"
+            </Link>
+            <Link
+              to="/studio"
               className="text-gray-800 font-medium hover:text-red-500 transition-colors text-sm flex items-center gap-1"
             >
               STUDIO
               <sup className="text-xs bg-red-500 text-white px-1.5 py-0.5 rounded font-bold">
                 NEW
               </sup>
-            </a>
+            </Link>
           </nav>
 
           {/* Search Bar */}
@@ -87,38 +90,44 @@ export default function Header() {
           <div className="flex items-center gap-6">
             {/* Profile */}
             <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group">
-              <IoPersonOutline
-                size={24}
-                className="text-gray-800 group-hover:text-red-500"
-              />
-              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
-                Profile
-              </span>
+              <Link to="/profile">
+                <IoPersonOutline
+                  size={24}
+                  className="text-gray-800 group-hover:text-red-500"
+                />
+                <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                  Profile
+                </span>
+              </Link>
             </button>
 
             {/* Wishlist */}
             <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group">
-              <IoHeartOutline
-                size={24}
-                className="text-gray-800 group-hover:text-red-500"
-              />
-              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
-                Wishlist
-              </span>
+              <Link to="/wishlist">
+                <IoHeartOutline
+                  size={24}
+                  className="text-gray-800 group-hover:text-red-500"
+                />
+                <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                  Wishlist
+                </span>
+              </Link>
             </button>
 
             {/* Bag */}
             <button className="flex flex-col items-center gap-1 hover:text-red-500 transition-colors group relative">
-              <IoCartOutline
-                size={24}
-                className="text-gray-800 group-hover:text-red-500"
-              />
-              <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
-                Bag
-              </span>
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                0
-              </span>
+              <Link to="/bag">
+                <IoCartOutline
+                  size={24}
+                  className="text-gray-800 group-hover:text-red-500"
+                />
+                <span className="text-xs text-gray-800 group-hover:text-red-500 font-medium">
+                  Bag
+                </span>
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  0
+                </span>
+              </Link>
             </button>
           </div>
         </div>
