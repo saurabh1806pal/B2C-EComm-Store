@@ -2,7 +2,7 @@ const OrderSummary = ({ items }) => {
   const totalMRP = items.reduce((sum, item) => sum + item.original_price, 0);
   const totalPrice = items.reduce((sum, item) => sum + item.current_price, 0);
   const totalDiscount = totalMRP - totalPrice;
-  const convenienceFee = 99;
+  const convenienceFee = totalPrice >= 500 || totalMRP === 0 ? 0 : 99;
   const finalAmount = totalPrice + convenienceFee;
 
   return (

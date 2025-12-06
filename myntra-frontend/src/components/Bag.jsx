@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 
 function Bag() {
   const items = useSelector((state) => state.items);
+  const bagItem = useSelector((state) => state.bag);
+  const finalItems = items.filter((item) => {
+    const itemIndex = bagItem.indexOf(item.id);
+    return itemIndex >= 0;
+  });
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +23,7 @@ function Bag() {
           {/* Left Section - Cart Items */}
           <div className="flex-1 lg:w-2/3">
             <div className="space-y-4">
-              {items.map((item) => (
+              {finalItems.map((item) => (
                 <CartCard key={item.id} item={item} />
               ))}
             </div>
@@ -27,7 +32,7 @@ function Bag() {
           {/* Right Section - Order Summary */}
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-6">
-              <OrderSummary items={items} />
+              <OrderSummary items={finalItems} />
             </div>
           </div>
         </div>

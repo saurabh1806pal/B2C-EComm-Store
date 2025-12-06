@@ -7,6 +7,8 @@ import {
   FaUndo,
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { bagActions } from "../store/bagSlice";
 
 const renderStars = (rating) => {
   const stars = [];
@@ -29,6 +31,17 @@ const renderStars = (rating) => {
 };
 
 const ProductCard = ({ item }) => {
+  const bagItem = useSelector((state) => state.bag);
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    // Logic to add item to cart
+    console.log(`Adding item ${item.id} to cart`);
+    dispatch(bagActions.addToBag(item.id));
+  };
+  const handleRemoveFromCart = () => {
+    console.log(`this item removed from bag ${item.id}`);
+    dispatch(bagActions.removeFromBag(item.id));
+  };
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 group">
       {/* Image Container */}
@@ -113,9 +126,21 @@ const ProductCard = ({ item }) => {
         </div>
 
         {/* Add to Cart Button */}
-        <button className="w-full mt-5 bg-linear-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-          Add to Cart
-        </button>
+        {bagItem.includes(item.id) ? (
+          <button
+            className="w-full mt-5 bg-linear-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+            onClick={handleRemoveFromCart}
+          >
+            Remove From Cart
+          </button>
+        ) : (
+          <button
+            className="w-full mt-5 bg-linear-to-r from-blue-500 to-violet-500 hover:from-blue-600 hover:to-violet-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

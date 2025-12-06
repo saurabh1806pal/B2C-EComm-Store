@@ -29,12 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ItemList />,
-        loader: fetchProductData,
       },
       {
         path: "/home",
-        element: <ItemList items={items} />,
-        loader: fetchProductData,
+        element: <ItemList />,
       },
       {
         path: "/profile",

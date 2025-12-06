@@ -5,8 +5,10 @@ import {
   IoCartOutline,
   IoSearch,
 } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const bagLength = useSelector((state) => state.bag.length);
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       {/* Main Header Container */}
@@ -125,7 +127,7 @@ export default function Header() {
                   Bag
                 </span>
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                  0
+                  {bagLength}
                 </span>
               </Link>
             </button>
